@@ -86,11 +86,10 @@ def attack_route(target: RTSPClient):
         # Otherwise, bruteforce the routes.
         for route in ROUTES:
             ok = attack(target, port=port, route=route)
-            if not ok:
-                break
-            if any(code in target.data for code in ROUTE_OK_CODES):
+            if ok:
                 target.port = port
                 target.routes.append(route)
+                
     return target #move into if for 1 route
 
 

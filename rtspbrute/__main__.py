@@ -15,6 +15,8 @@ from rtspbrute.modules.cli.input import parser
 from rtspbrute.modules.cli.output import console, progress_bar
 from rtspbrute.modules.rtsp import RTSPClient
 
+import sys, os
+sys.path.append(os.path.dirname(__file__) + "/..")
 
 def start_threads(number: int, target: Callable, *args) -> List[threading.Thread]:
     threads = []
@@ -140,5 +142,4 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("exiting")
-        console.clear()
         console.end_capture()
