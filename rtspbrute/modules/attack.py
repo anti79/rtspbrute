@@ -91,7 +91,7 @@ def attack_route(target: RTSPClient):
             if any(code in target.data for code in ROUTE_OK_CODES):
                 target.port = port
                 target.routes.append(route)
-                return target
+    return target #move into if for 1 route
 
 
 def attack_credentials(target: RTSPClient):
